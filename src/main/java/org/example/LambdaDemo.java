@@ -8,6 +8,7 @@ public class LambdaDemo {
 
     public static StringLength stringLength = String::length;//получить длину строки
 
+
     public static FirstSymbolOfString firstSymbol = str -> {//получить первый символ строки
         if (str.length() > 0){
             return str.charAt(0);
@@ -26,16 +27,17 @@ public class LambdaDemo {
         }
     };
 
-    public static Function<Human, Integer> ageHuman = Human::getAge;//получить возраст человека
+    public static Function<Person, Integer> ageHuman = Person::getAge;//получить возраст человека
 
     //проверить, что у двух людей одинаковые фамилии
-    public static BiPredicate<Human, Human> sameSurname = (h1, h2) -> h1.getSurname().equals(h2.getSurname());
+    public static BiPredicate<Person, Person> sameSurname = (h1, h2) -> h1.getSurname().equals(h2.getSurname());
 
-    public static Function<Human, String> fullName = h -> String.join(" ", h.getSurname(), h.getName(), h.getMiddlename());
+    public static Function<Person, String> fullName = h -> String.join(" ", h.getSurname(), h.getName(), h.getMiddlename());
 
     public static Function<Human, Human> newHuman = h->
         new Human(h.getSurname(), h.getName(), h.getMiddlename(), h.getAge()+1, h.getGender());
 
-    public static TreePredicate<Human> youngPeople = (h1, h2, h3, maxAge) ->
+    public static ThreePredicate<Human> youngPeople = (h1, h2, h3, maxAge) ->
             h1.getAge() < maxAge && h2.getAge() < maxAge && h3.getAge() < maxAge;
+
 }

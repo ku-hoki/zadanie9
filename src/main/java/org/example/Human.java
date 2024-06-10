@@ -6,7 +6,7 @@ enum Gender{
     male, female;
 }
 
-public class Human {
+public class Human implements Person{
     private String surname;
     private String name;
     private String middlename;

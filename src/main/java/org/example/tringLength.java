@@ -8,6 +8,14 @@ interface FirstSymbolOfString{
     Character getFirstChar(String str);
 }
 
-interface TreePredicate<T>{
+interface ThreePredicate<T>{
     boolean test(T t1, T t2, T t3, int maxAge);
+}
+
+interface Person{
+    String getSurname();
+    String getName();
+    String getMiddlename();
+    int getAge();
+
 }
